@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  ovh-ddos-notifications:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./config.yml:/app/config.yml
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production

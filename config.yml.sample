@@ -1,0 +1,23 @@
+ovh:
+  endpoint: 'ovh-us'
+  appKey: 'your_app_key_here'
+  appSecret: 'your_app_secret_here'
+  consumerKey: 'your_consumer_key_here'
+
+webhook:
+  webhookURL: "your_discord_webhook_url_here"
+
+ips:
+  - ipAddress: "0.0.0.0"
+    checkInterval: 30s
+
+messages:
+#The message format must be a valid JSON embed format. 
+  mitigation-enabled:
+    title: "DDoS Attack detected!"
+    description: "\nIP `{ipAddress}` have mitigation mode enabled!"
+    color: 16711680 # Red color in decimal
+  mitigation-disabled:
+    title: "Seems that the DDoS attack has stopped!"
+    description: "\nIP `{ipAddress}` is no longer under mitigation mode!"
+    color: 65280 # Green color in decimal
