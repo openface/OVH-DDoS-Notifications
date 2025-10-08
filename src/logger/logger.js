@@ -1,14 +1,23 @@
 const colors = require("ansi-colors")
 
 class Logger {
-    log(message) {
-        console.log(colors.greenBright.bold(new Date().toLocaleString('es-ES') + " - [INFO] " + message));
+    getFormattedDate = () => {
+        return new Date().toLocaleString('en-US', {
+            timeZone: 'America/New_York',
+            hour12: false
+        });
     }
-    warn(message) {
-        console.log(colors.yellowBright.bold(new Date().toLocaleString('es-ES') + " - [WARN] " + message));
+
+    log = (message) => {
+        console.log(colors.greenBright.bold(this.getFormattedDate() + " - [INFO] " + message));
     }
-    error(message) {
-        console.log(colors.redBright.bold(new Date().toLocaleString('es-ES') + " - [ERROR] " + message));
+
+    warn = (message) => {
+        console.log(colors.yellowBright.bold(this.getFormattedDate() + " - [WARN] " + message));
+    }
+
+    error = (message) => {
+        console.log(colors.redBright.bold(this.getFormattedDate() + " - [ERROR] " + message));
     }
 }
 
